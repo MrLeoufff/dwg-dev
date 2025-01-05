@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<main>
+
+		<section id="presentation" class="presentation container py-5">
+			<h2 class="text-center mb-4">A propos de moi</h2>
+			<p>
+				Chez
+				<strong>
+					Dr Web
+				</strong>, nous sommes passionnés par la création de solutions numériques sur mesure qui répondent aux besoins uniques de chaque client. Avec des années d'expérience dans le développement web, nous combinons créativité et expertise technique pour offrir des résultats qui répondent à vos attentes.
+			</p>
+			<p>
+				Que ce soit pour un site vitrine, une boutique en ligne ou une application web sur mesure, nous travaillons en étroite collaboration avec vous à chaque étape du processus pour garantir votre satisfaction totale.
+			</p>
+		</section>
+		<section id="services" class="services container py-5">
+			<h2 class="text-center mb-4">Mes Services</h2>
+			<div class="row">
+				<div class="col-md-4 mb-4">
+					<article class="card h-100">
+						<h3 class="card card-title">Création de site avec des CMS</h3>
+						<p>Prix :
+							<strong>500€</strong>
+						</p>
+						<p>Temps estimé :
+							<strong>1 semaine</strong>
+						</p>
+						<p>
+							Nous créons des sites professionnels en utilisant des CMS tels que WordPress ou Joomla.
+						</p>
+						<button class="learn-more">En savoir plus</button>
+					</article>
+				</div>
+				<div class="col-md-4 mb-4">
+					<article class="card h-100">
+						<h3 class="card card-title">Site vitrine entièrement personnalisable</h3>
+						<p>Prix :
+							<strong>1000€</strong>
+						</p>
+						<p>Temps estimé :
+							<strong>1 à 2 semaines</strong>
+						</p>
+						<p>
+							Offrez à votre entreprise une identité unique grâce à un site vitrine sur mesure.
+						</p>
+						<button class="learn-more">En savoir plus</button>
+					</article>
+				</div>
+				<div class="col-md-4 mb-4">
+					<article class="card h-100">
+						<h3 class="card card-title">App web Gestion/E-commerce sur mesure</h3>
+						<p>Prix :
+							<strong>À partir de 1500€</strong>
+						</p>
+						<p>Temps estimé :
+							<strong>Variable</strong>
+						</p>
+						<p>
+							Développez une application web ou un site e-commerce totalement personnalisé.
+						</p>
+						<button class="learn-more">En savoir plus</button>
+					</article>
+				</div>
+			</div>
+		</section>
+		<!-- Formation Section -->
+		<section id="formations" class="formations container py-5">
+			<h2 class="text-center mb-4">Formations disponibles</h2>
+			<div class="row">
+				{% for formation in formations %}
+					<div class="col-md-4 mb-4">
+						<article class="card h-100">
+							<h3 class="card-title">{{ formation.name }}</h3>
+							<p>{{ formation.description }}</p>
+							<p>Prix :
+								<strong>{{ formation.price }}€</strong>
+							</p>
+							<button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#sessionsModal" onclick="openSessionsModal('{{ formation.name|e('js') }}', JSON.parse('{{ formation.sessions|json_encode|e('js') }}'))">
+								Voir les sessions
+							</button>
+						</article>
+					</div>
+				{% else %}
+					<p class="text-center">Aucune formation disponible pour le moment.</p>
+				{% endfor %}
+
+			</div>
+		</section>
+		<section id="contact" class="contact container py-5">
+			<h2 class="text-center mb-4">Contactez-moi</h2>
+			<form method="post" action="{{ path('app_contact') }}" id="contactForm" class="mx-auto" style="max-width: 600px">
+				<div class="mb-3">
+					<input type="text" class="form-control" name="name" placeholder="Votre nom" required/>
+				</div>
+				<div class="mb-3">
+					<input type="email" class="form-control" name="email" placeholder="Votre email" required/>
+				</div>
+				<div class="mb-3">
+					<textarea class="form-control" name="message" placeholder="Votre message" rows="4" required></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary w-100">Envoyer</button>
+			</form>
+			<div id="formResponse" class="text-center mt-3"></div>
+		</section>
+	</main>
+
+	<!-- Modale Bootstrap -->
+	<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="serviceModalLabel">Détails du Service</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<h6 id="modalTitle" class="text-primary"></h6>
+					<p id="modalContent" class="mb-3">Contenu du service ici...</p>
+					<ul id="modalDetails"></ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modale pour afficher les sessions -->
+	<div class="modal fade" id="sessionsModal" tabindex="-1" aria-labelledby="sessionsModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="sessionsModalLabel">Détails des sessions</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<h6 id="modalTitleSessions" class="text-primary"></h6>
+					<ul id="modalDetailsSessions"></ul>
+					<!-- Liste des sessions -->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+	<h2>Créer une formation</h2>
+
+	{{ form_start(form) }}
+	{{ form_row(form.name) }}
+	{{ form_row(form.description) }}
+	{{ form_row(form.price) }}
+	{{ form_row(form.startDate) }}
+
+	<h2>Sessions</h2>
+	<div id="sessions" data-prototype="{{ form_widget(form.sessions.vars.prototype)|e('html_attr') }}">
+		{{ form_widget(form.sessions) }}
+	</div>
+
+	<button type="submit" class="btn btn-success">Créer</button>
+	{{ form_end(form) }}
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+const collectionHolder = document.querySelector('#sessions');
+const addButton = document.createElement('button');
+addButton.textContent = 'Ajouter une session';
+addButton.classList.add('btn', 'btn-primary', 'mt-2');
+collectionHolder.after(addButton);
+
+let index = collectionHolder.querySelectorAll('.session-item').length;
+
+addButton.addEventListener('click', (e) => {
+e.preventDefault();
+const prototype = collectionHolder.dataset.prototype;
+
+if (! prototype) {
+console.error("Prototype manquant !");
+return;
+}
+
+console.log (`Ajout d'une session avec l'index ${index}`);
+
+let newForm = prototype.replace(/__name__/g, index);
+collectionHolder.insertAdjacentHTML('beforeend', newForm);
+index++;
+});
+
+// Vérification des sessions ajoutées après chargement
+console.log('Nombre de sessions actuelles:', collectionHolder.querySelectorAll('.session-item').length);
+});
+	</script>
+{% endblock %}

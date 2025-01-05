@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="container py-5">
+		<h2 class="text-center mb-4">Contactez-moi</h2>
+
+		{{ form_start(form) }}
+		<div class="mb-3">
+			{{ form_row(form.name) }}
+		</div>
+		<div class="mb-3">
+			{{ form_row(form.email) }}
+		</div>
+		<div class="mb-3">
+			{{ form_row(form.message) }}
+		</div>
+		<button type="submit" class="btn btn-primary w-100">Envoyer</button>
+		{{ form_end(form) }}
+
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success mt-4">
+				{{ message }}
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

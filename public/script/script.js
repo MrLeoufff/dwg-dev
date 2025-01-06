@@ -166,12 +166,10 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem('theme', isDarkMode ? 'dark-mode' : 'light-mode');
     });
     window.openSessionsModal = function (name, sessions) {
-        console.log("Nom de la formation :", name);
-        console.log("Sessions :", sessions);
 
-        document.getElementById('modalTitleSessions').textContent = name; // Affiche le nom de la formation
+        document.getElementById('modalTitleSessions').textContent = name;
         const detailsList = document.getElementById('modalDetailsSessions');
-        detailsList.innerHTML = ''; // Réinitialise la liste des sessions
+        detailsList.innerHTML = '';
         console.log("Données JSON transmises :", sessions);
 
         if (sessions && Array.isArray(sessions) && sessions.length > 0) {

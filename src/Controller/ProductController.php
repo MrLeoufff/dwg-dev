@@ -27,7 +27,7 @@ final class ProductController extends AbstractController
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
-        $product = new Product(); // Création d'un nouveau produit
+        $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 

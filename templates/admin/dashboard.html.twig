@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord - Administration
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5">
+		<h1 class="mb-4 text-center">Tableau de bord de l'Administrateur</h1>
+
+		<div
+			class="row">
+			<!-- Gestion des produits -->
+			<div class="col-md-4">
+				<div class="card text-white bg-primary mb-3 shadow-sm">
+					<div class="card-header text-center">
+						<i class="bi bi-box-seam" style="font-size: 2rem;"></i>
+						<h5 class="mt-2">Produits</h5>
+					</div>
+					<div class="card-body text-center">
+						<p>Gérez les produits disponibles dans la boutique.</p>
+						<a href="{{ path('app_product_index') }}" class="btn btn-light">Accéder</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Gestion des utilisateurs -->
+			<div class="col-md-4">
+				<div class="card text-white bg-success mb-3 shadow-sm">
+					<div class="card-header text-center">
+						<i class="bi bi-people" style="font-size: 2rem;"></i>
+						<h5 class="mt-2">Utilisateurs</h5>
+					</div>
+					<div class="card-body text-center">
+						<p>Gérez les comptes utilisateurs.</p>
+						<a href="{{ path('admin_user') }}" class="btn btn-light">Accéder</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Statistiques -->
+			<div class="col-md-4">
+				<div class="card text-white bg-warning mb-3 shadow-sm">
+					<div class="card-header text-center">
+						<i class="bi bi-graph-up-arrow" style="font-size: 2rem;"></i>
+						<h5 class="mt-2">Statistiques</h5>
+					</div>
+					<div class="card-body text-center">
+						<p>Consultez les statistiques des ventes et commandes.</p>
+						<a href="#" class="btn btn-light">Voir les détails</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Section de bienvenue -->
+		<div class="mt-5 p-4 bg-light shadow-sm rounded text-center">
+			<h3>Bienvenue,
+				{{ app.user.pseudo }}
+				!</h3>
+			<p>Utilisez les outils ci-dessus pour gérer le site efficacement.</p>
+		</div>
+	</div>
+{% endblock %}

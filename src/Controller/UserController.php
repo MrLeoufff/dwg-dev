@@ -14,6 +14,18 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
 {
+    #[Route('/admin/users', name: 'admin_user')]
+    public function index(EntityManagerInterface $entityManager): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN'); // Vérification des permissions admin
+
+        $users = $entityManager->getRepository(User::class)->findAll();
+
+        return $this->render('user/index.html.twig', [
+            'users' => $users,
+        ]);
+    }
+
     #[Route('/register', name: 'app_register')]
     public function register(
         Request $request,
@@ -98,7 +110,6 @@ class UserController extends AbstractController
 
                 $url = $this->generateUrl('app_reset_password', ['token' => $user->getResetToken()], \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL);
 
-                // Utilisation de Symfony\Component\Mime pour construire l'email
                 $emailMessage = (new \Symfony\Component\Mime\Email())
                     ->from('developpeur.web.gard@gmail.com')
                     ->to($user->getEmail())
@@ -141,5 +152,4 @@ class UserController extends AbstractController
 
         return $this->render('user/reset_password.html.twig', ['token' => $token]);
     }
-
 }

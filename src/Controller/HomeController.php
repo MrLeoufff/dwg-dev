@@ -24,7 +24,7 @@ class HomeController extends AbstractController
 
             // Création du message email
             $emailMessage = (new Email())
-                ->from($email)
+                ->from('reneleliard@gmail.com')
                 ->to('developpeur.web.gard@gmail.com')
                 ->subject('Nouveau message via le formulaire de contact')
                 ->text("Nom: $name\nEmail: $email\nMessage:\n$message");

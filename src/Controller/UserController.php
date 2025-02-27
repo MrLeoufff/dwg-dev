@@ -17,7 +17,7 @@ class UserController extends AbstractController
     #[Route('/admin/users', name: 'admin_user')]
     public function index(EntityManagerInterface $entityManager): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN'); // Vérification des permissions admin
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         $users = $entityManager->getRepository(User::class)->findAll();
 

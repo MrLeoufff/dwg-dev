@@ -1,32 +1,42 @@
-<h1>Politique de confidentialité</h1>
+{% extends 'base.html.twig' %}
 
-<p>Le site
-	<strong>dwg-dev.fr</strong>
-	collecte et traite certaines données personnelles :</p>
+{% block title %}Politique de confidentialité
+{% endblock %}
 
-<ul>
-	<li>📬 Via le formulaire de contact : nom, email, message</li>
-	<li>👤 Lors de la création de compte : nom, prénom, adresse email, mot de passe (crypté)</li>
-</ul>
+{% block body %}
+	<div class="container py-5">
+		<h1>Politique de confidentialité</h1>
 
-<h2>Utilisation des données</h2>
-<p>Les données collectées sont utilisées uniquement pour :</p>
-<ul>
-	<li>Répondre à vos messages</li>
-	<li>Gérer votre accès utilisateur au site (authentification)</li>
-	<li>Assurer le bon fonctionnement des services proposés</li>
-</ul>
+		<p>Le site
+			<strong>dwg-dev.fr</strong>
+			collecte et traite certaines données personnelles, uniquement dans le cadre des fonctionnalités proposées :</p>
 
-<h2>Durée de conservation</h2>
-<p>Les données des comptes sont conservées tant que le compte reste actif. Vous pouvez demander leur suppression à tout moment.</p>
+		<ul>
+			<li>📬 Via le formulaire de contact : nom, adresse email, message</li>
+			<li>👤 Lors de la création d’un compte : nom, prénom, adresse email, mot de passe (chiffré)</li>
+		</ul>
 
-<h2>Sécurité</h2>
-<p>Les mots de passe sont stockés de manière chiffrée. Aucune donnée personnelle n’est partagée ou vendue à des tiers.</p>
+		<h2>Utilisation des données</h2>
+		<p>Les données collectées sont utilisées uniquement pour :</p>
+		<ul>
+			<li>Répondre à vos demandes de contact</li>
+			<li>Permettre la création et la gestion de votre compte utilisateur</li>
+			<li>Garantir le bon fonctionnement technique du site</li>
+		</ul>
 
-<h2>Vos droits</h2>
-<p>Conformément au RGPD, vous disposez d’un droit d’accès, de rectification et de suppression des données vous concernant. Pour exercer ces droits, vous pouvez écrire à :
-	<a href="mailto:developpeur.web.gard@gmail.com">developpeur.web.gard@gmail.com</a>
-</p>
+		<h2>Durée de conservation</h2>
+		<p>Les données issues des formulaires ne sont pas stockées en base de données. Les comptes utilisateurs sont conservés tant qu’ils sont actifs. Vous pouvez demander la suppression de votre compte à tout moment.</p>
 
-<h2>Cookies</h2>
-<p>Ce site n’utilise pas de cookies de suivi ni de publicités. Seuls des cookies techniques essentiels au bon fonctionnement du site peuvent être utilisés.</p>
+		<h2>Sécurité</h2>
+		<p>Les mots de passe sont chiffrés et ne sont jamais enregistrés en clair. Aucune donnée personnelle n’est cédée ni utilisée à des fins commerciales.</p>
+
+		<h2>Vos droits</h2>
+		<p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d’un droit d’accès, de rectification, de suppression et d’opposition. Vous pouvez exercer ces droits en contactant :</p>
+		<p>
+			<a href="mailto:developpeur.web.gard@gmail.com">developpeur.web.gard@gmail.com</a>
+		</p>
+
+		<h2>Cookies</h2>
+		<p>Ce site n’utilise pas de cookies de suivi ou de publicité. Seuls des cookies techniques essentiels au fonctionnement du site peuvent être utilisés.</p>
+	</div>
+{% endblock %}

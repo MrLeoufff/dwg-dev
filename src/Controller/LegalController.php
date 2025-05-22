@@ -13,4 +13,10 @@ class LegalController extends AbstractController
     {
         return $this->render('legal/index.html.twig');
     }
+
+    #[Route('/politique-de-confidentialite', name: 'app_politique_confidentialite')]
+    public function privacy(): Response
+    {
+        return $this->render('legal/privacy.html.twig');
+    }
 }

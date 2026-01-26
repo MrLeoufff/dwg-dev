@@ -20,7 +20,7 @@ class AppFixtures extends Fixture
     {
         // Création de l'administrateur
         $admin = new User();
-        $admin->setPseudo('DrWeb');
+        $admin->setPseudo('DWG');
         $admin->setEmail('developpeur.web.gard@gmail.com');
         $admin->setRoles(['ROLE_ADMIN']);
         $admin->setVerified(true);

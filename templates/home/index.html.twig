@@ -1,107 +1,168 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<main>
+	<section id="presentation" class="section container">
+		<div class="section-heading">
+			<p class="eyebrow">A propos de DWG</p>
+			<h2>Un partenaire fiable pour vos projets web</h2>
+			<p class="section-lead">
+				Nous concevons des expériences digitales élégantes, performantes et centrées utilisateur.
+																								De la stratégie à la mise en ligne, nous avançons avec vous à chaque étape.
+			</p>
+		</div>
+		<div class="stats-grid">
+			<div class="stat-card">
+				<span>+5 ans</span>
+				<p>Expérience en création web et accompagnement clients.</p>
+			</div>
+			<div class="stat-card">
+				<span>100%</span>
+				<p>De projets livrés avec suivi et maintenance.</p>
+			</div>
+			<div class="stat-card">
+				<span>Sur-mesure</span>
+				<p>Chaque solution est adaptée à votre activité.</p>
+			</div>
+		</div>
+		<div class="signature-strip">
+			<span class="signature-pill">Stratégie claire</span>
+			<span class="signature-pill">Design utile</span>
+			<span class="signature-pill">Tech fiable</span>
+			<span class="signature-pill">Accompagnement humain</span>
+		</div>
+	</section>
 
-		<section id="presentation" class="presentation container py-5">
-			<h2 class="text-center mb-4">A propos de moi</h2>
-			<p>
-				Chez
-				<strong>
-					Dr Web
-				</strong>, nous sommes passionnés par la création de solutions numériques sur mesure qui répondent aux besoins uniques de chaque client. Avec des années d'expérience dans le développement web, nous combinons créativité et expertise technique pour offrir des résultats qui répondent à vos attentes.
-			</p>
-			<p>
-				Que ce soit pour un site vitrine, une boutique en ligne ou une application web sur mesure, nous travaillons en étroite collaboration avec vous à chaque étape du processus pour garantir votre satisfaction totale.
-			</p>
-		</section>
-		<section id="services" class="services container py-5">
-			<h2 class="text-center mb-4">Mes Services</h2>
-			<div class="row">
-				<div class="col-md-4 mb-4">
-					<article class="card h-100">
-						<h3 class="card card-title">Création de site avec des CMS</h3>
-						<p>Prix :
-							<strong>À partir de 500€</strong>
-						</p>
-						<p>Temps estimé :
-							<strong>1 semaine</strong>
-						</p>
-						<p>
-							Nous créons des sites professionnels en utilisant des CMS tels que WordPress ou Joomla.
-						</p>
-						<button class="learn-more">En savoir plus</button>
+	<section id="services" class="section section-muted">
+		<div class="container">
+			<div class="section-heading">
+				<p class="eyebrow">Services</p>
+				<h2>Des offres claires, pensées pour votre croissance</h2>
+				<p class="section-lead">Choisissez le niveau d'accompagnement qui vous convient, avec des livrables précis et des délais réalistes.</p>
+			</div>
+			<div class="row g-4">
+				<div class="col-lg-4">
+					<article class="service-card">
+						<div class="service-card__icon">
+							<i class="bi bi-gear"></i>
+						</div>
+						<h3>Outils & automatisations CRM</h3>
+						<p class="service-meta">Intégrations sur vos outils existants</p>
+						<p>Connecteurs, scripts et automatisations pour fluidifier vos opérations web et mobile.</p>
+						<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#serviceModalCms">En savoir plus</button>
 					</article>
 				</div>
-				<div class="col-md-4 mb-4">
-					<article class="card h-100">
-						<h3 class="card card-title">Site vitrine entièrement personnalisable</h3>
-						<p>Prix :
-							<strong>À partir de 1500€</strong>
-						</p>
-						<p>Temps estimé :
-							<strong>3 à 4 semaines</strong>
-						</p>
-						<p>
-							Offrez à votre entreprise une identité unique grâce à un site vitrine sur mesure.
-						</p>
-						<button class="learn-more">En savoir plus</button>
+				<div class="col-lg-4">
+					<article class="service-card featured">
+						<div class="service-card__icon">
+							<i class="bi bi-shield-check"></i>
+						</div>
+						<h3>Maintenance web & mobile</h3>
+						<p class="service-meta">Stabilité, sécurité, performance</p>
+						<p>Supervision, corrections et évolutions continues de vos sites et apps.</p>
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#serviceModalVitrine">En savoir plus</button>
 					</article>
 				</div>
-				<div class="col-md-4 mb-4">
-					<article class="card h-100">
-						<h3 class="card card-title">App web Gestion/E-commerce sur mesure</h3>
-						<p>Prix :
-							<strong>À partir de 2000€</strong>
-						</p>
-						<p>Temps estimé :
-							<strong>Variable</strong>
-						</p>
-						<p>
-							Développez une application web ou un site e-commerce totalement personnalisé.
-						</p>
-						<button class="learn-more">En savoir plus</button>
+				<div class="col-lg-4">
+					<article class="service-card">
+						<div class="service-card__icon">
+							<i class="bi bi-lightning-charge"></i>
+						</div>
+						<h3>Apps web & mobile sur-mesure</h3>
+						<p class="service-meta">Sur devis</p>
+						<p>Développement d'applications et de fonctionnalités métiers.</p>
+						<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#serviceModalEcommerce">En savoir plus</button>
 					</article>
 				</div>
 			</div>
-		</section>
-		<!-- Formation Section -->
-		<section id="formations" class="formations container py-5">
-			<h2 class="text-center mb-4">Formations disponibles</h2>
-			<div class="row">
-				{% for formation in formations %}
-					<div class="col-md-4 mb-4">
-						<article class="card h-100">
-							<h3 class="card-title">{{ formation.name }}</h3>
-							<p>{{ formation.description }}</p>
-							<p>Prix :
-								<strong>{{ formation.price }}€</strong>
-							</p>
-							<button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#sessionsModal" onclick="openSessionsModal('{{ formation.name|e('js') }}', JSON.parse('{{ formation.sessions|json_encode|e('js') }}'))">
-								Voir les sessions
-							</button>
-						</article>
-					</div>
-				{% else %}
-					<p class="text-center">Aucune formation disponible pour le moment.</p>
-				{% endfor %}
+		</div>
+	</section>
 
-			</div>
-		</section>
-	</main>
+	<section id="formations" class="section container">
+		<div class="section-heading">
+			<p class="eyebrow">Formations</p>
+			<h2>Montez en compétence avec des formats concrets</h2>
+			<p class="section-lead">Des sessions adaptées à vos besoins, en petit groupe ou en individuel.</p>
+		</div>
+		<div class="row g-4">
+			{% for formation in formations %}
+				<div class="col-lg-4">
+					<article class="formation-card">
+						<h3>{{ formation.name }}</h3>
+						<p>{{ formation.description }}</p>
+						<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#sessionsModal" onclick="openSessionsModal('{{ formation.name|e('js') }}', JSON.parse('{{ formation.sessions|json_encode|e('js') }}'))">
+							Voir les sessions
+						</button>
+					</article>
+				</div>
+			{% else %}
+				<p class="text-center">Aucune formation disponible pour le moment.</p>
+			{% endfor %}
+		</div>
+	</section>
 
 	<!-- Modale Bootstrap -->
-	<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+	<div class="modal fade" id="serviceModalCms" tabindex="-1" aria-labelledby="serviceModalCmsLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="serviceModalLabel">Détails du Service</h5>
+					<h5 class="modal-title" id="serviceModalCmsLabel">Outils & automatisations CRM</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<h6 id="modalTitle" class="text-primary" aria-live="polite">Titre du service</h6>
-					<p id="modalContent" class="mb-3">Contenu du service ici...</p>
-					<ul id="modalDetails"></ul>
+					<p class="mb-3">Optimisez vos outils existants avec des automatisations fiables.</p>
+					<ul>
+						<li>Connecteurs entre CRM, marketing et support.</li>
+						<li>Automatisation des tâches répétitives.</li>
+						<li>Tableaux de bord et exports dédiés.</li>
+						<li>Nettoyage et fiabilisation des données.</li>
+						<li>Documentation et transfert d’exploitation.</li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="serviceModalVitrine" tabindex="-1" aria-labelledby="serviceModalVitrineLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="serviceModalVitrineLabel">Maintenance web & mobile</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p class="mb-3">Gardez vos sites et apps stables, sécurisés et performants.</p>
+					<ul>
+						<li>Surveillance et alertes proactives.</li>
+						<li>Correctifs rapides et mises à jour maîtrisées.</li>
+						<li>Optimisation des temps de réponse.</li>
+						<li>Sauvegardes et plan de reprise.</li>
+						<li>Roadmap d’évolutions priorisées.</li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="serviceModalEcommerce" tabindex="-1" aria-labelledby="serviceModalEcommerceLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="serviceModalEcommerceLabel">Apps web & mobile sur-mesure</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p class="mb-3">Développez des applications web et mobile alignées sur vos besoins.</p>
+					<ul>
+						<li>Apps métiers web et mobile (iOS/Android).</li>
+						<li>Portails clients et back-offices.</li>
+						<li>API internes et synchronisations.</li>
+						<li>Rôles, permissions et audit.</li>
+						<li>Améliorations UX ciblées.</li>
+					</ul>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>

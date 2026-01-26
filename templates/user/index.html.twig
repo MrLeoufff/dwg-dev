@@ -4,37 +4,51 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container mt-5">
-		<h1 class="text-center mb-4">Liste des utilisateurs</h1>
+	<section class="section">
+		<div class="container">
+			<div class="page-header">
+				<div>
+					<p class="eyebrow">Administration</p>
+					<h1>Utilisateurs</h1>
+					<p class="section-lead">Suivi des comptes et de leur statut de vérification.</p>
+				</div>
+			</div>
 
-		<table class="table table-bordered table-hover">
-			<thead class="thead-dark">
-				<tr>
-					<th>ID</th>
-					<th>Email</th>
-					<th>Rôle</th>
-					<th>Statut</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for user in users %}
-					<tr>
-						<td>{{ user.id }}</td>
-						<td>{{ user.email }}</td>
-						<td>{{ user.roles | join(', ') }}</td>
-						<td>{{ user.isVerified ? 'Vérifié' : 'Non vérifié' }}</td>
-						<td>
-							<a href="#" class="btn btn-sm btn-primary">Modifier</a>
-							<a href="#" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')">Supprimer</a>
-						</td>
-					</tr>
-				{% else %}
-					<tr>
-						<td colspan="5" class="text-center">Aucun utilisateur trouvé</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	</div>
+			<div class="table-card">
+				<table class="table table-hover align-middle">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Email</th>
+							<th>Rôle</th>
+							<th>Statut</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for user in users %}
+							<tr>
+								<td>{{ user.id }}</td>
+								<td>{{ user.email }}</td>
+								<td>{{ user.roles | join(', ') }}</td>
+								<td>
+									<span class="status-pill {{ user.isVerified ? 'is-success' : 'is-warning' }}">
+										{{ user.isVerified ? 'Vérifié' : 'Non vérifié' }}
+									</span>
+								</td>
+								<td class="table-actions">
+									<a href="#" class="btn btn-sm btn-outline-primary">Modifier</a>
+									<a href="#" class="btn btn-sm btn-outline-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')">Supprimer</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="5" class="text-center">Aucun utilisateur trouvé</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
 {% endblock %}

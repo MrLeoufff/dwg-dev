@@ -1,9 +1,18 @@
 
 services:
+  nginx:
+    ports:
+      - "8080:80"
+
+  php:
+    environment:
+      APP_ENV: dev
+      APP_DEBUG: 1
+
 ###> doctrine/doctrine-bundle ###
   database:
     ports:
-      - "5432"
+      - "3306"
 ###< doctrine/doctrine-bundle ###
 
 ###> symfony/mailer ###

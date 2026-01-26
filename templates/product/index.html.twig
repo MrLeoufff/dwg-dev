@@ -4,50 +4,53 @@
 {% endblock %}
 
 {% block body %}
-	<h2>Produit</h2>
+	<section class="section">
+		<div class="container">
+			<div class="page-header">
+				<div>
+					<p class="eyebrow">Administration</p>
+					<h1>Produits</h1>
+					<p class="section-lead">Gérez vos services et formations disponibles.</p>
+				</div>
+				<a href="{{ path('app_product_new') }}" class="btn btn-primary">Nouveau produit</a>
+			</div>
 
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Nom</th>
-				<th>Description</th>
-				<th>Prix</th>
-				<th>Créer le</th>
-				<th>Type</th>
-				<th>actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for product in products %}
-				<tr>
-					<td>{{ product.name }}</td>
-					<td>{{ product.description }}</td>
-					<td>{{ product.price }}
-						€</td>
-					<td>{{ product.createdAt ? product.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-					<td>{{ product.type }}</td>
-					<td>
-						<a href="{{ path('app_product_index') }}" class="btn btn-secondary">
-							<i class="fas fa-arrow-left"></i>
-							Retour à la liste
-						</a>
-						<a href="{{ path('app_product_edit', {'id': product.id}) }}" class="btn btn-primary">
-							<i class="fas fa-edit"></i>
-							Modifier
-						</a>
-						<a href="{{ path('app_product_delete', {'id': product.id}) }}" class="btn btn-danger">
-							<i class="fas fa-delete"></i>
-							Supprimer
-						</a>
-					</td>
-				</tr>
-			{% else %}
-				<tr>
-					<td colspan="8">no records found</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-
-	<a href="{{ path('app_product_new') }}">Create new</a>
+			<div class="table-card">
+				<table class="table table-hover align-middle">
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Description</th>
+							<th>Prix</th>
+							<th>Créé le</th>
+							<th>Type</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for product in products %}
+							<tr>
+								<td>{{ product.name }}</td>
+								<td class="text-muted">{{ product.description }}</td>
+								<td>{{ product.price }}€</td>
+								<td>{{ product.createdAt ? product.createdAt|date('d/m/Y') : '' }}</td>
+								<td>
+									<span class="status-pill">{{ product.type }}</span>
+								</td>
+								<td class="table-actions">
+									<a href="{{ path('app_product_show', {'id': product.id}) }}" class="btn btn-sm btn-outline-primary">Voir</a>
+									<a href="{{ path('app_product_edit', {'id': product.id}) }}" class="btn btn-sm btn-outline-primary">Modifier</a>
+									{{ include('product/_delete_form.html.twig') }}
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="6" class="text-center">Aucun produit trouvé</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
 {% endblock %}

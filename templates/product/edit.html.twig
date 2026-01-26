@@ -4,11 +4,24 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Edit Product</h1>
+	<section class="section">
+		<div class="container">
+			<div class="page-header">
+				<div>
+					<p class="eyebrow">Administration</p>
+					<h1>Modifier un produit</h1>
+					<p class="section-lead">Mettez à jour les informations et les sessions.</p>
+				</div>
+				<a href="{{ path('app_product_index') }}" class="btn btn-outline-primary">Retour</a>
+			</div>
 
-	{{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
+			<div class="form-card">
+				{{ include('product/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+			</div>
 
-	<a href="{{ path('app_product_index') }}">back to list</a>
-
-	{{ include('product/_delete_form.html.twig') }}
+			<div class="form-actions">
+				{{ include('product/_delete_form.html.twig') }}
+			</div>
+		</div>
+	</section>
 {% endblock %}

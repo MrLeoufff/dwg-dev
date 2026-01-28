@@ -10,7 +10,7 @@
 				<div>
 					<p class="eyebrow">Administration</p>
 					<h1>Détails du produit</h1>
-					<p class="section-lead">Vue globale des informations et sessions.</p>
+					<p class="section-lead">Vue globale des informations et échéances.</p>
 				</div>
 				<div class="page-actions">
 					<a href="{{ path('app_product_index') }}" class="btn btn-outline-primary">Retour</a>
@@ -50,7 +50,7 @@
 			</div>
 
 			<div class="table-card">
-				<h2>Sessions de formation</h2>
+				<h2>Échéances</h2>
 				{% if product.sessions is not empty %}
 					<table class="table align-middle">
 						<thead>
@@ -71,13 +71,13 @@
 								</tr>
 							{% else %}
 								<tr>
-									<td colspan="4">Aucune session disponible</td>
+									<td colspan="4">Aucune échéance disponible</td>
 								</tr>
 							{% endfor %}
 						</tbody>
 					</table>
 				{% else %}
-					<p class="text-muted">Aucune session de formation n'a été planifiée pour ce produit.</p>
+					<p class="text-muted">Aucune échéance n'a été planifiée pour ce produit.</p>
 				{% endif %}
 			</div>
 

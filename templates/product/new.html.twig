@@ -7,8 +7,8 @@
 			<div class="page-header">
 				<div>
 					<p class="eyebrow">Administration</p>
-					<h1>Créer une formation</h1>
-					<p class="section-lead">Renseignez les informations clés et les sessions disponibles.</p>
+					<h1>Créer une offre</h1>
+					<p class="section-lead">Renseignez les informations clés et les options disponibles.</p>
 				</div>
 				<a href="{{ path('app_product_index') }}" class="btn btn-outline-primary">Retour</a>
 			</div>
@@ -22,8 +22,8 @@
 				{{ form_row(form.startDate) }}
 
 				<div class="form-section">
-					<h2>Sessions</h2>
-					<p class="section-lead">Ajoutez les dates et horaires des sessions.</p>
+					<h2>Échéances</h2>
+					<p class="section-lead">Ajoutez les dates clés et jalons.</p>
 					<div id="sessions" class="session-list" data-prototype="{{ form_widget(form.sessions.vars.prototype)|e('html_attr') }}">
 						{{ form_widget(form.sessions) }}
 					</div>

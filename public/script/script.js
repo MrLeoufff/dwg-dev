@@ -15,19 +15,4 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem('theme', isDarkMode ? 'dark-mode' : 'light-mode');
     });
 
-    window.openSessionsModal = function (name, sessions) {
-        document.getElementById('modalTitleSessions').textContent = name;
-        const detailsList = document.getElementById('modalDetailsSessions');
-        detailsList.innerHTML = '';
-
-        if (sessions && Array.isArray(sessions) && sessions.length > 0) {
-            sessions.forEach((session, index) => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `Session ${index + 1} - Jour : ${session.day.date.substring(0, 10)} - Début : ${session.startTime.date.substring(11, 16)} - Durée : ${session.duration} minutes`;
-                detailsList.appendChild(listItem);
-            });
-        } else {
-            detailsList.innerHTML = '<p>Aucune session disponible pour cette formation.</p>';
-        }
-    };
 });

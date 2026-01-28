@@ -4,10 +4,10 @@
 	<section id="presentation" class="section container">
 		<div class="section-heading">
 			<p class="eyebrow">A propos de DWG</p>
-			<h2>Un partenaire fiable pour vos projets web</h2>
+			<h2>Des outils pro pour structurer et accélérer votre activité</h2>
 			<p class="section-lead">
-				Nous concevons des expériences digitales élégantes, performantes et centrées utilisateur.
-																								De la stratégie à la mise en ligne, nous avançons avec vous à chaque étape.
+				Nous concevons des solutions digitales orientées performance métier : CRM, automatisations,
+																											portails clients et applications web/mobile.
 			</p>
 		</div>
 		<div class="stats-grid">
@@ -36,8 +36,8 @@
 		<div class="container">
 			<div class="section-heading">
 				<p class="eyebrow">Services</p>
-				<h2>Des offres claires, pensées pour votre croissance</h2>
-				<p class="section-lead">Choisissez le niveau d'accompagnement qui vous convient, avec des livrables précis et des délais réalistes.</p>
+				<h2>Des solutions métiers, claires et mesurables</h2>
+				<p class="section-lead">Objectifs, livrables et résultats : chaque mission est cadrée et pilotée.</p>
 			</div>
 			<div class="row g-4">
 				<div class="col-lg-4">
@@ -47,7 +47,7 @@
 						</div>
 						<h3>Outils & automatisations CRM</h3>
 						<p class="service-meta">Intégrations sur vos outils existants</p>
-						<p>Connecteurs, scripts et automatisations pour fluidifier vos opérations web et mobile.</p>
+						<p>Workflows, synchronisations et automatisations pour des process fiables.</p>
 						<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#serviceModalCms">En savoir plus</button>
 					</article>
 				</div>
@@ -58,7 +58,7 @@
 						</div>
 						<h3>Maintenance web & mobile</h3>
 						<p class="service-meta">Stabilité, sécurité, performance</p>
-						<p>Supervision, corrections et évolutions continues de vos sites et apps.</p>
+						<p>Supervision, correctifs et évolutions continues de vos outils.</p>
 						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#serviceModalVitrine">En savoir plus</button>
 					</article>
 				</div>
@@ -69,7 +69,7 @@
 						</div>
 						<h3>Apps web & mobile sur-mesure</h3>
 						<p class="service-meta">Sur devis</p>
-						<p>Développement d'applications et de fonctionnalités métiers.</p>
+						<p>Applications métiers, portails clients et back-offices sur mesure.</p>
 						<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#serviceModalEcommerce">En savoir plus</button>
 					</article>
 				</div>
@@ -77,26 +77,97 @@
 		</div>
 	</section>
 
-	<section id="formations" class="section container">
-		<div class="section-heading">
-			<p class="eyebrow">Formations</p>
-			<h2>Montez en compétence avec des formats concrets</h2>
-			<p class="section-lead">Des sessions adaptées à vos besoins, en petit groupe ou en individuel.</p>
-		</div>
-		<div class="row g-4">
-			{% for formation in formations %}
+	<section id="cases" class="section section-muted">
+		<div class="container">
+			<div class="section-heading">
+				<p class="eyebrow">Cas d’usage</p>
+				<h2>Des scénarios concrets, orientés outils</h2>
+				<p class="section-lead">Exemples fréquents pour clarifier ce qui est livré.</p>
+			</div>
+			<div class="row g-4">
 				<div class="col-lg-4">
-					<article class="formation-card">
-						<h3>{{ formation.name }}</h3>
-						<p>{{ formation.description }}</p>
-						<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#sessionsModal" onclick="openSessionsModal('{{ formation.name|e('js') }}', JSON.parse('{{ formation.sessions|json_encode|e('js') }}'))">
-							Voir les sessions
-						</button>
+					<article class="service-card">
+						<div class="service-card__icon"><i class="bi bi-briefcase"></i></div>
+						<h3>CRM + automatisations</h3>
+						<p>Centralisation des leads, scoring, relances et reporting.</p>
+						<ul class="case-list">
+							<li>Gain de temps sur les tâches répétitives</li>
+							<li>Suivi commercial plus fiable</li>
+							<li>Moins d’oubli dans les relances</li>
+						</ul>
 					</article>
 				</div>
-			{% else %}
-				<p class="text-center">Aucune formation disponible pour le moment.</p>
-			{% endfor %}
+				<div class="col-lg-4">
+					<article class="service-card">
+						<div class="service-card__icon"><i class="bi bi-phone"></i></div>
+						<h3>App mobile terrain</h3>
+						<p>Saisie terrain, synchronisation et validation centralisée.</p>
+						<ul class="case-list">
+							<li>Formulaires mobiles et photos</li>
+							<li>Synchronisation temps réel</li>
+							<li>Alertes et statuts automatisés</li>
+						</ul>
+					</article>
+				</div>
+				<div class="col-lg-4">
+					<article class="service-card">
+						<div class="service-card__icon"><i class="bi bi-globe"></i></div>
+						<h3>Portail client web</h3>
+						<p>Espace sécurisé pour documents, demandes et suivi.</p>
+						<ul class="case-list">
+							<li>Accès client et rôles</li>
+							<li>Historique des demandes</li>
+							<li>Notifications automatiques</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="cta" class="section section-muted">
+		<div class="container">
+			<div class="section-heading">
+				<p class="eyebrow">Discutons</p>
+				<h2>Un besoin CRM, web ou mobile ?</h2>
+				<p class="section-lead">Audit rapide, plan d’action clair, et estimation réaliste.</p>
+				<div class="hero-actions">
+					<a href="#services" class="btn btn-primary btn-lg">Voir nos services</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="contact-quick" class="section container">
+		<div class="section-heading">
+			<p class="eyebrow">Contact rapide</p>
+			<h2>Recevez un audit rapide de vos outils</h2>
+			<p class="section-lead">Un échange court pour identifier les priorités et les bons leviers.</p>
+		</div>
+		<div class="row g-4 align-items-center">
+			<div class="col-lg-6">
+				<article class="service-card">
+					<div class="service-card__icon"><i class="bi bi-telephone"></i></div>
+					<h3>Un appel de cadrage offert</h3>
+					<p>Nous analysons vos outils, vos flux et vos priorités.</p>
+					<ul class="case-list">
+						<li>Points de friction identifiés</li>
+						<li>Recommandations opérationnelles</li>
+						<li>Estimation réaliste</li>
+					</ul>
+				</article>
+			</div>
+			<div class="col-lg-6">
+				<article class="service-card">
+					<div class="service-card__icon"><i class="bi bi-envelope"></i></div>
+					<h3>Contact direct</h3>
+					<p>Vous préférez l’email ? Réponse sous 24–48h ouvrées.</p>
+					<div class="hero-actions">
+						<a href="mailto:developpeur.web.gard@gmail.com" class="btn btn-primary btn-lg">Écrire un email</a>
+						<a href="#services" class="btn btn-outline-primary btn-lg">Voir nos offres</a>
+					</div>
+				</article>
+			</div>
 		</div>
 	</section>
 
@@ -170,24 +241,4 @@
 			</div>
 		</div>
 	</div>
-	<!-- Modale pour afficher les sessions -->
-	<div class="modal fade" id="sessionsModal" tabindex="-1" aria-labelledby="sessionsModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="sessionsModalLabel">Dates et horaires des sessions</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<h6 id="modalTitleSessions" class="text-primary" aria-live="polite">Titre des sessions</h6>
-					<ul id="modalDetailsSessions"></ul>
-					<!-- Liste des sessions -->
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
 {% endblock %}
